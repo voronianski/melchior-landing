@@ -12,7 +12,7 @@ body {
     width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-    background: url(http://tympanus.net/Tutorials/RealtimeGeolocationNode/images/grey.png);
+    background: url(../grey.png);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -94,7 +94,7 @@ body {
 .example {
     text-align: left;
     background: rgba(28, 21, 33, 0.83);
-    max-width: 500px;
+    max-width: 550px;
     width: 90%;
     margin: 30px auto;
     overflow: hidden;
@@ -137,6 +137,7 @@ body {
 }
 
 .gradient {
+    background: -moz-linear-gradient(right, #883de6 0%, #7a28e1 49.76%, #4C3D95 100%);
     background: linear-gradient(right, #883de6 0%, #7a28e1 49.76%, #4C3D95 100%);
 }
 

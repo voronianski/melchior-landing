@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MelchiorJS - Chainable Module Definition</title>
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png"/>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700|Source+Code+Pro:500,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <section class="wrap">
+        <h1 class="logo">melchior.js</h1>
+        <div class="desc">
+            Introducing <strong>the most javascripty way</strong> to configure dependencies.<br> The first module loader with <strong>Chainable Module Definition API</strong>.
+        </div>
+
+        <div class="ctas">
+            <a href="https://github.com/voronianski/melchior.js/tree/master/examples" class="btn">Examples</a>
+            <a href="https://github.com/voronianski/melchior.js#documentation" class="btn docs">❒ Docs</a>
+        </div>
+
+        <div class="box">
+            <h2>Simple.</h2>
+            <div class="s-desc">Get rid of long lines of code declaring and writing module names twice!<br> Create module, chain requires and you are ready to use them inside.</div>
+
+            <div class="example">
+<pre class="code"><span class="comment">// create module</span>
+melchiorjs.module(<span class="string">'yourModule'</span>)
+
+<span class="comment">// define dependencies</span>
+.require(<span class="string">'dependencyUno'</span>)
+.require(<span class="string">'dependencyDuo'</span>, <span class="string">'duo'</span>)
+
+<span class="comment">// define module body</span>
+.body(<span class="keyword">function</span> () {
+    <span class="comment">// `dependencyUno` is available here!</span>
+    dependencyUno.doSomething();
+
+    <span class="comment">// aliased `dependencyDuo` is available as `duo`!</span>
+    duo.doSomething();
+
+    <span class="comment">// return methods for other modules</span>
+    <span class="keyword">return</span> {
+        method: <span class="keyword">function</span> () { ... },
+        anotherMethod: <span class="keyword">function</span> () { ... }
+    };
+});</pre>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>Configurable.</h2>
+            <div class="s-desc">Melchior's script loader <strong>asynchronously</strong> resolves dependencies.<br> <strong>Non-melchior modules</strong> and frameworks are handled <strong>automatically</strong>.</div>
+
+            <div class="example">
+<pre class="code">melchiorjs.config({
+    paths: {
+        <span class="string">'jQuery'</span>: <span class="string">'path/to/jquery'</span>,
+        <span class="string">'underscore'</span>: <span class="string">'path/to/underscore'</span>,
+        <span class="string">'myModule'</span>: <span class="string">'path/to/myModule'</span>
+    },
+
+    <span class="comment">// provide shim to non-melchior modules if needed</span>
+    <span class="comment">// declare globals returned by libraries and deps</span>
+    shim: {
+        underscore: {
+            exports: <span class="string">'_'</span>
+        }
+    }
+});</pre>
+            </div>
+
+            <div class="s-desc">Just put config into <strong>"data-main"</strong> entry point for all of your modules.</div>
+
+            <div class="example">
+<pre class="code nowrap">&lt;script src=<span class="string">"path/melchior.js"</span> data-main=<span class="string">"path/entry.js"</span>&gt;</pre>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>Small.</h2>
+            <div class="s-desc">Melchior is just <strong>3KB</strong> when minified and supports all major browsers.<br> Including <strong>Internet Explorer 8+</strong>, <strong>Chrome 1+</strong>, <strong>Firefox 2+</strong>, <strong>Opera 10+</strong>,<br> <strong>Safari 3+</strong> and popular mobile browsers.</div>
+        </div>
+
+        <div class="box">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="voronianski" data-related="likeastore">Tweet</a>
+            <iframe src="http://ghbtns.com/github-btn.html?user=voronianski&repo=melchior.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="90" height="20"></iframe>
+            <iframe src="http://ghbtns.com/github-btn.html?user=voronianski&type=follow"
+      allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+
+        <a href="https://github.com/voronianski/melchior.js" class="github-ribbon">Fork on Github</a>
+    </section>
+
+    <div class="gradient bg"></div>
+    <div class="overlay bg"></div>
+
+</body>
+</html>
